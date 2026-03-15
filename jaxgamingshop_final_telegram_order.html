@@ -483,19 +483,52 @@
         "Payment: " + selectedPayment + "\n" +
         "Screenshot: I will send in chat";
 
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(orderText);
-          alert('Order text ကို copy လုပ်ပြီး Telegram chat ဖွင့်ပေးထားပါတယ်။ Paste လုပ်ပြီး Send နှိပ်ပါ။');
-        } else {
-          alert('Telegram chat ဖွင့်ပေးထားပါတယ်။ Order text ကို summary ကနေ copy/paste လုပ်ပြီး Send နှိပ်ပါ။');
-        }
-      } catch (e) {
-        alert('Telegram chat ဖွင့်ပေးထားပါတယ်။ Order text ကို paste လုပ်ပြီး Send နှိပ်ပါ။');
-      }
+    const orderText =
+  "New Order\n" +
+  "Shop: JaxGamingShop\n" +
+  "Game: " + selectedGame + "\n" +
+  "Game ID: " + gameId + "\n" +
+  "Server ID: " + serverId + "\n" +
+  "Package: " + selectedPackage + "\n" +
+  "Payment: " + selectedPayment + "\n" +
+  "Screenshot: I will send in chat";
 
-      window.open("https://t.me/jax_gamingShop", "_blank");
-    }
+const botToken = "8530226173:AAFqtbdZSVFxUiyD8WM5BFufGfGB42TCLj8";
+const chatId = "-1003884775417";
+
+fetch("https://api.telegram.org/bot" + botToken + "/sendMessage", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    chat_id: chatId,
+    text: orderText
+  })
+})
+.then(() => {
+  alert("Order Telegram Group ထဲပို့ပြီးပါပြီ");
+})
+.catch(() => {
+  alert("Order မပို့နိုင်သေးဘူး");
+});
+
+fetch("https://api.telegram.org/bot" + botToken + "/sendMessage", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    chat_id: chatId,
+    text: orderText
+  })
+})
+.then(() => {
+  alert("Order Telegram Group ထဲပို့ပြီးပါပြီ");
+})
+.catch(() => {
+  alert("Order မပို့နိုင်သေးဘူး");
+});
     document.addEventListener('DOMContentLoaded', function () {
       const pubgBtn = document.getElementById('gamePubg');
       const mlbbBtn = document.getElementById('gameMlbb');
@@ -520,7 +553,6 @@ text:text
 })
 });
 }
-</script>
-  <button onclick="sendOrder()" style="width:100%;padding:14px;background:#00c853;color:white;font-size:18px;border:none;border-radius:8px;">
-Submit Order
-  </button>
+  </script>
+</body>
+</html>
