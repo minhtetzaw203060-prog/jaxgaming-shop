@@ -507,28 +507,16 @@ fetch("https://api.telegram.org/bot" + botToken + "/sendMessage", {
   })
 })
 .then(() => {
-  alert("Order Telegram Group ထဲပို့ပြီးပါပြီ");
-})
-.catch(() => {
-  alert("Order မပို့နိုင်သေးဘူး");
-});
+  document.addEventListener('DOMContentLoaded', function () {
+const pubgBtn = document.getElementById('pubgBtn');
+const mlbbBtn = document.getElementById('mlbbBtn');
 
-fetch("https://api.telegram.org/bot" + botToken + "/sendMessage", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    chat_id: chatId,
-    text: orderText
-  })
-})
-.then(() => {
-  alert("Order Telegram Group ထဲပို့ပြီးပါပြီ");
-})
-.catch(() => {
-  alert("Order မပို့နိုင်သေးဘူး");
+if (pubgBtn) pubgBtn.addEventListener('click', selectPUBG);
+if (mlbbBtn) mlbbBtn.addEventListener('click', selectMLBB);
 });
+</script>
+</body>
+</html>
     document.addEventListener('DOMContentLoaded', function () {
       const pubgBtn = document.getElementById('gamePubg');
       const mlbbBtn = document.getElementById('gameMlbb');
