@@ -535,24 +535,6 @@ fetch("https://api.telegram.org/bot" + botToken + "/sendMessage", {
       if (pubgBtn) pubgBtn.addEventListener('click', function () { selectGame('PUBG MOBILE UC'); });
       if (mlbbBtn) mlbbBtn.addEventListener('click', function () { selectGame('MLBB DIAMOND'); });
     });
-
-  </script>
-  <script>
-function sendOrder(){
-var token="8530226173:AAFqtbdZSVFxUiyD8WM5BFufGfGB42TCLj8";
-var chat_id="-1003884775417";
-
-var text="New Order from Website";
-
-fetch("https://api.telegram.org/bot"+token+"/sendMessage",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-chat_id:chat_id,
-text:text
-})
-});
-}
   </script>
 </body>
 </html>
